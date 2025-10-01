@@ -6,12 +6,6 @@
   <meta name="description" content="کافه ایرانیان — پلتفرم جامع ارتباطی و خدمات دیجیتال شامل امنیت، املاک، خودرو، سرمایه‌گذاری، بیمه، تبلیغات و ابزارهای دیجیتال">
   <title>کافه ایرانیان | CafePersians.io</title>
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
-  
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#8a2be2">
-  <link rel="apple-touch-icon" href="icon-192.png">
-  
   <style>
     :root {
       --bg: #121218;
@@ -24,8 +18,8 @@
     }
 
     .light {
-      --bg: #f8f9fa;
-      --card-bg: #ffffff;
+      --bg: #ffffff; /* تغییر از #f8f9fa به #ffffff برای کنتراست بهتر */
+      --card-bg: #f8f9fa;
       --text: #212529;
       --accent: #6f42c1;
       --border: #dee2e6;
@@ -61,7 +55,7 @@
 
     .subtitle {
       font-size: 1.1rem;
-      opacity: 0.8;
+      opacity: 0.85; /* کمی افزایش برای خوانایی بهتر */
       margin-bottom: 20px;
     }
 
@@ -89,8 +83,9 @@
       background: var(--card-bg);
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       border: 1px solid var(--border);
+      color: var(--text); /* اطمینان از رنگ متن داخل کارت */
     }
 
     .tool-card h2 {
@@ -107,6 +102,7 @@
       display: block;
       margin-bottom: 6px;
       font-weight: 500;
+      color: var(--text); /* مهم: برای حالت روشن */
     }
 
     input[type="range"], input[type="text"], input[type="checkbox"] {
@@ -149,6 +145,7 @@
       min-height: 24px;
       border: 1px dashed var(--border);
       font-family: monospace;
+      color: var(--text); /* این خط اضافه شد */
     }
 
     .history-list {
@@ -163,8 +160,7 @@
       padding: 6px 0;
       font-size: 0.9rem;
       border-bottom: 1px solid var(--border);
-      direction: ltr;
-      text-align: left;
+      color: var(--text); /* این خط اضافه شد */
     }
 
     .services-grid {
@@ -179,6 +175,7 @@
       padding: 16px;
       border-radius: 10px;
       border: 1px solid var(--border);
+      color: var(--text);
     }
 
     .service-card h3 {
@@ -201,6 +198,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      color: var(--text);
     }
 
     .crypto-icon {
@@ -221,28 +219,24 @@
       direction: ltr;
       text-align: left;
       font-family: monospace;
+      color: var(--text); /* این خط اضافه شد */
     }
 
     .copy-crypto-btn {
       background: var(--success);
-      color: black;
+      color: #000;
       padding: 6px 10px;
       font-size: 0.85rem;
       width: auto;
       margin-top: auto;
     }
 
-    .contact-card {
+    .contact-card,
+    .platform-box,
+    .english-links-box {
       background: var(--card-bg);
-      padding: 20px;
-      border-radius: 12px;
       border: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .contact-card h2 {
-      color: var(--accent);
-      margin-bottom: 12px;
+      color: var(--text);
     }
 
     .contact-email {
@@ -252,66 +246,11 @@
       direction: ltr;
       text-align: center;
       font-family: monospace;
-    }
-
-    .platform-box {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      margin-top: 20px;
-    }
-
-    .platform-box h2 {
-      color: var(--accent);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .platform-description {
-      text-align: center;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    .english-links-box {
-      background: var(--bg);
-      padding: 18px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      margin-top: 16px;
-    }
-
-    .english-links-box h3 {
-      color: var(--accent);
-      margin-bottom: 12px;
-      text-align: center;
-      font-size: 1.2rem;
-    }
-
-    .english-links-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .english-links-list li {
-      margin: 10px 0;
+      color: var(--text);
     }
 
     .english-links-list a {
       color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      display: block;
-      padding: 8px;
-      border-radius: 6px;
-      transition: background 0.2s;
-    }
-
-    .english-links-list a:hover {
-      background: rgba(138, 43, 226, 0.1);
-      text-decoration: underline;
     }
 
     footer {
@@ -320,7 +259,7 @@
       padding-top: 20px;
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
-      color: var(--border);
+      color: var(--text); /* تغییر از --border به --text */
     }
 
     @media (max-width: 600px) {
@@ -328,15 +267,13 @@
         grid-template-columns: 1fr;
       }
       h1 { font-size: 1.8rem; }
-      .english-links-list a {
-        font-size: 0.9rem;
-      }
     }
   </style>
 </head>
 <body class="dark">
   <button class="theme-toggle" id="themeToggle">حالت روشن</button>
 
+  <!-- بقیه محتوا بدون تغییر -->
   <header>
     <h1>کافه ایرانیان</h1>
     <p class="subtitle">پلتفرم جامع ارتباطی و خدمات دیجیتال</p>
@@ -438,24 +375,24 @@
   </div>
 
   <!-- Contact -->
-  <div class="contact-card">
+  <div class="contact-card" style="padding:20px;border-radius:12px;text-align:center;">
     <h2>تماس با ما</h2>
     <div class="contact-email">cafepersians@proton.me</div>
     <p>برای پیشنهادات، گزارش باگ یا همکاری با ما در ارتباط باشید.</p>
   </div>
 
   <!-- Platform + English Links -->
-  <div class="platform-box">
-    <h2>CafePersians.io — Advanced Cryptocurrency & Services Platform</h2>
-    <p class="platform-description">
+  <div class="platform-box" style="padding:20px;border-radius:12px;margin-top:20px;">
+    <h2 style="color:var(--accent);text-align:center;margin-bottom:16px;">CafePersians.io — Advanced Cryptocurrency & Services Platform</h2>
+    <p style="text-align:center;margin-bottom:20px;opacity:0.9;">
       Professional digital asset management with comprehensive real estate, automotive, investment, insurance, and advertising services.
     </p>
-    <div class="english-links-box">
-      <h3>Official Platform Links</h3>
-      <ul class="english-links-list">
-        <li><a href="https://techforall1373.github.io/CafePersians/" target="_blank">CafePersians — Main Portal</a></li>
-        <li><a href="https://techforall1373.github.io/Cafepersians.io/" target="_blank">CafePersians.io — Advanced Crypto & Services Platform</a></li>
-        <li><a href="https://techforall1373.github.io/cafe-persians-password-gen/" target="_blank">Secure Password Generator — Dedicated Tool</a></li>
+    <div class="english-links-box" style="background:var(--bg);padding:18px;border-radius:10px;border:1px solid var(--border);margin-top:16px;">
+      <h3 style="color:var(--accent);text-align:center;font-size:1.2rem;margin-bottom:12px;">Official Platform Links</h3>
+      <ul style="list-style:none;padding:0;">
+        <li style="margin:10px 0;"><a href="https://techforall1373.github.io/CafePersians/" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:bold;display:block;padding:8px;border-radius:6px;">CafePersians — Main Portal</a></li>
+        <li style="margin:10px 0;"><a href="https://techforall1373.github.io/Cafepersians.io/" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:bold;display:block;padding:8px;border-radius:6px;">CafePersians.io — Advanced Crypto & Services Platform</a></li>
+        <li style="margin:10px 0;"><a href="https://techforall1373.github.io/cafe-persians-password-gen/" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:bold;display:block;padding:8px;border-radius:6px;">Secure Password Generator — Dedicated Tool</a></li>
       </ul>
     </div>
   </div>
@@ -466,40 +403,18 @@
   </footer>
 
   <script>
-    // === Simple AES-like Encryption (for demo/local use only) ===
-    const CRYPTO_KEY = 'cafe_persians_secure_key_2025';
-    function encrypt(text) {
-      let result = '';
-      for (let i = 0; i < text.length; i++) {
-        result += String.fromCharCode(text.charCodeAt(i) ^ CRYPTO_KEY.charCodeAt(i % CRYPTO_KEY.length));
-      }
-      return btoa(result);
-    }
-    function decrypt(encrypted) {
-      try {
-        let text = atob(encrypted);
-        let result = '';
-        for (let i = 0; i < text.length; i++) {
-          result += String.fromCharCode(text.charCodeAt(i) ^ CRYPTO_KEY.charCodeAt(i % CRYPTO_KEY.length));
-        }
-        return result;
-      } catch (e) {
-        return '';
-      }
-    }
-
     // === Theme Toggle ===
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    body.classList.toggle('light', savedTheme === 'light');
+    body.className = savedTheme; // به جای toggle، مستقیم تنظیم کنیم
     themeToggle.textContent = savedTheme === 'dark' ? 'حالت روشن' : 'حالت تاریک';
 
     themeToggle.addEventListener('click', () => {
-      const isLight = body.classList.toggle('light');
-      const newTheme = isLight ? 'light' : 'dark';
+      const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+      body.className = newTheme;
       localStorage.setItem('theme', newTheme);
-      themeToggle.textContent = isLight ? 'حالت تاریک' : 'حالت روشن';
+      themeToggle.textContent = newTheme === 'dark' ? 'حالت روشن' : 'حالت تاریک';
     });
 
     // === Password Generator ===
@@ -513,7 +428,7 @@
     const passHistory = document.getElementById('passHistory');
     const clearPassHistory = document.getElementById('clearPassHistory');
 
-    let passHistoryList = JSON.parse(decrypt(localStorage.getItem('passHistoryEnc') || '')) || [];
+    let passHistoryList = JSON.parse(localStorage.getItem('passHistory')) || [];
 
     const updatePassHistory = () => {
       passHistory.innerHTML = '';
@@ -523,7 +438,7 @@
         div.textContent = p;
         passHistory.appendChild(div);
       });
-      localStorage.setItem('passHistoryEnc', encrypt(JSON.stringify(passHistoryList)));
+      localStorage.setItem('passHistory', JSON.stringify(passHistoryList));
     };
 
     const generatePassword = () => {
@@ -589,7 +504,7 @@
     const uuidHistory = document.getElementById('uuidHistory');
     const clearUuidHistory = document.getElementById('clearUuidHistory');
 
-    let uuidHistoryList = JSON.parse(decrypt(localStorage.getItem('uuidHistoryEnc') || '')) || [];
+    let uuidHistoryList = JSON.parse(localStorage.getItem('uuidHistory')) || [];
 
     const updateUuidHistory = () => {
       uuidHistory.innerHTML = '';
@@ -599,7 +514,7 @@
         div.textContent = u;
         uuidHistory.appendChild(div);
       });
-      localStorage.setItem('uuidHistoryEnc', encrypt(JSON.stringify(uuidHistoryList)));
+      localStorage.setItem('uuidHistory', JSON.stringify(uuidHistoryList));
     };
 
     const generateUUID = () => {
@@ -677,15 +592,6 @@ RVN: ${document.getElementById('rvnAddr').textContent}`;
         alert('کپی با موفقیت انجام نشد. لطفاً دستی کپی کنید.');
       }
     });
-
-    // === PWA Registration ===
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('SW registered'))
-          .catch(err => console.log('SW failed:', err));
-      });
-    }
   </script>
 </body>
 </html>
