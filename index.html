@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="کافه ایرانیان — پلتفرم جامع ارتباطی و خدمات دیجیتال شامل امنیت، املاک، خودرو، سرمایه‌گذاری، بیمه، تبلیغات و ابزارهای دیجیتال">
+  <title>کافه ایرانیان | CafePersians.io</title>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#8a2be2">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  
+  <style>
+    :root {
+      --bg: #121218;
+      --card-bg: #1e1e2e;
+      --text: #e0e0ff;
+      --accent: #8a2be2;
+      --border: #44475a;
+      --success: #50fa7b;
+      --danger: #ff5555;
+    }
+
+    .light {
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #212529;
+      --accent: #6f42c1;
+      --border: #dee2e6;
+      --success: #28a745;
+      --danger: #dc3545;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 20px;
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .tools-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .tool-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: 1px solid var(--border);
+    }
+
+    .tool-card h2 {
+      margin-bottom: 15px;
+      color: var(--accent);
+      font-size: 1.4rem;
+    }
+
+    .input-group {
+      margin: 12px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input[type="range"], input[type="text"], input[type="checkbox"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+      transition: opacity 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .clear-btn {
+      background: var(--danger);
+    }
+
+    .result-box {
+      background: var(--bg);
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 12px;
+      word-break: break-all;
+      min-height: 24px;
+      border: 1px dashed var(--border);
+      font-family: monospace;
+    }
+
+    .history-list {
+      margin-top: 15px;
+      max-height: 150px;
+      overflow-y: auto;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .history-item {
+      padding: 6px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+      direction: ltr;
+      text-align: left;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .service-card h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .crypto-item {
+      background: var(--bg);
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .crypto-icon {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .crypto-name {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .crypto-address {
+      font-size: 0.85rem;
+      word-break: break-all;
+      margin-bottom: 8px;
+      direction: ltr;
+      text-align: left;
+      font-family: monospace;
+    }
+
+    .copy-crypto-btn {
+      background: var(--success);
+      color: black;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      width: auto;
+      margin-top: auto;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .contact-email {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 10px 0;
+      direction: ltr;
+      text-align: center;
+      font-family: monospace;
+    }
+
+    .platform-box {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    .platform-box h2 {
+      color: var(--accent);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .platform-description {
+      text-align: center;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .english-links-box {
+      background: var(--bg);
+      padding: 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .english-links-box h3 {
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    .english-links-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .english-links-list li {
+      margin: 10px 0;
+    }
+
+    .english-links-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      display: block;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .english-links-list a:hover {
+      background: rgba(138, 43, 226, 0.1);
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .tools-container, .services-grid, .crypto-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 1.8rem; }
+      .english-links-list a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark">
+  <button class="theme-toggle" id="themeToggle">حالت روشن</button>
+
+  <header>
+    <h1>کافه ایرانیان</h1>
+    <p class="subtitle">پلتفرم جامع ارتباطی و خدمات دیجیتال</p>
+  </header>
+
+  <!-- Password Generator -->
+  <div class="tool-card">
+    <h2>تولید رمز عبور امن</h2>
+    <div class="input-group">
+      <label for="passLength">طول رمز عبور: <span id="lenValue">12</span></label>
+      <input type="range" id="passLength" min="4" max="64" value="12" />
+    </div>
+    <div class="input-group">
+      <label><input type="checkbox" id="upper" checked /> حروف بزرگ (A-Z)</label>
+    </div>
+    <div class="input-group">
+      <label><input type="checkbox" id="lower" checked /> حروف کوچک (a-z)</label>
+    </div>
+    <div class="input-group">
+      <label><input type="checkbox" id="numbers" checked /> اعداد (0-9)</label>
+    </div>
+    <div class="input-group">
+      <label><input type="checkbox" id="symbols" checked /> نمادها (!@#$%^&*)</label>
+    </div>
+    <button id="genPassBtn">تولید رمز عبور</button>
+    <div class="result-box" id="passResult">رمز عبور شما اینجا نمایش داده می‌شود</div>
+    <button id="copyPassBtn">کپی رمز عبور</button>
+    <div class="history-list" id="passHistory"></div>
+    <button class="clear-btn" id="clearPassHistory">پاک‌کردن تاریخچه</button>
+  </div>
+
+  <!-- UUID Generator -->
+  <div class="tool-card">
+    <h2>تولید UUID</h2>
+    <button id="genUuidBtn">تولید UUID جدید</button>
+    <div class="result-box" id="uuidResult">UUID شما اینجا نمایش داده می‌شود</div>
+    <button id="copyUuidBtn">کپی UUID</button>
+    <div class="history-list" id="uuidHistory"></div>
+    <button class="clear-btn" id="clearUuidHistory">پاک‌کردن تاریخچه</button>
+  </div>
+
+  <!-- Services -->
+  <div class="tool-card">
+    <h2>خدمات کافه ایرانیان</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>املاک</h3>
+        <p>خدمات جامع املاک شامل ویلا، باغ، زمین، خرید، فروش، رهن و معاوضه در سراسر ایران.</p>
+      </div>
+      <div class="service-card">
+        <h3>خودرو</h3>
+        <p>خرید، فروش و معاوضه خودرو با قیمت رقابتی و معاملات سریع.</p>
+      </div>
+      <div class="service-card">
+        <h3>سرمایه‌گذاری</h3>
+        <p>فرصت‌های طلایی سرمایه‌گذاری در بورس، طلا و ارزهای دیجیتال با راهنمایی تخصصی.</p>
+      </div>
+      <div class="service-card">
+        <h3>بیمه</h3>
+        <p>خدمات بیمه‌ای جامع برای امروز و فردا (به جز بیمه شخص ثالث).</p>
+      </div>
+      <div class="service-card">
+        <h3>تبلیغات</h3>
+        <p>تبلیغات مؤثر و بازدهی بالا در دیوار، شیپور و سایر پلتفرم‌های محبوب.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cryptocurrency Addresses -->
+  <div class="tool-card">
+    <h2>حمایت مالی (ارزهای دیجیتال)</h2>
+    <div class="crypto-grid">
+      <div class="crypto-item">
+        <div class="crypto-icon">🟣</div>
+        <div class="crypto-name">TRX (Tron)</div>
+        <div class="crypto-address" id="trxAddr">TWisA2k4zVrWxYJ8d1sKmQ9pNvR3fGhUjL</div>
+        <button class="copy-crypto-btn" data-target="trxAddr">کپی آدرس</button>
+      </div>
+      <div class="crypto-item">
+        <div class="crypto-icon">🔵</div>
+        <div class="crypto-name">USDC (Ethereum)</div>
+        <div class="crypto-address" id="usdcAddr">0x7a3B4E5F6C8D9A0B1C2D3E4F5A6B7C8D9E0F1A2B</div>
+        <button class="copy-crypto-btn" data-target="usdcAddr">کپی آدرس</button>
+      </div>
+      <div class="crypto-item">
+        <div class="crypto-icon">🔴</div>
+        <div class="crypto-name">AVAX (Avalanche)</div>
+        <div class="crypto-address" id="avaxAddr">avax1z9f8h7g6j5k4l3m2n1o0p9q8r7s6t5u4v3w2x</div>
+        <button class="copy-crypto-btn" data-target="avaxAddr">کپی آدرس</button>
+      </div>
+      <div class="crypto-item">
+        <div class="crypto-icon">🟠</div>
+        <div class="crypto-name">RVN (Ravencoin)</div>
+        <div class="crypto-address" id="rvnAddr">R9f8H7G6J5K4L3M2N1O0P9Q8R7S6T5U4V3W2X1Y</div>
+        <button class="copy-crypto-btn" data-target="rvnAddr">کپی آدرس</button>
+      </div>
+    </div>
+    <button id="copyAllCrypto" style="margin-top: 20px;">کپی همه آدرس‌ها</button>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-card">
+    <h2>تماس با ما</h2>
+    <div class="contact-email">cafepersians@proton.me</div>
+    <p>برای پیشنهادات، گزارش باگ یا همکاری با ما در ارتباط باشید.</p>
+  </div>
+
+  <!-- Platform + English Links -->
+  <div class="platform-box">
+    <h2>CafePersians.io — Advanced Cryptocurrency & Services Platform</h2>
+    <p class="platform-description">
+      Professional digital asset management with comprehensive real estate, automotive, investment, insurance, and advertising services.
+    </p>
+    <div class="english-links-box">
+      <h3>Official Platform Links</h3>
+      <ul class="english-links-list">
+        <li><a href="https://techforall1373.github.io/CafePersians/" target="_blank">CafePersians — Main Portal</a></li>
+        <li><a href="https://techforall1373.github.io/Cafepersians.io/" target="_blank">CafePersians.io — Advanced Crypto & Services Platform</a></li>
+        <li><a href="https://techforall1373.github.io/cafe-persians-password-gen/" target="_blank">Secure Password Generator — Dedicated Tool</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 کافه ایرانیان — پلتفرم جامع ارتباطی و خدمات دیجیتال</p>
+    <p>تمامی خدمات با رعایت امنیت و حریم خصوصی کاربران ارائه می‌شود.</p>
+  </footer>
+
+  <script>
+    // === Simple AES-like Encryption (for demo/local use only) ===
+    const CRYPTO_KEY = 'cafe_persians_secure_key_2025';
+    function encrypt(text) {
+      let result = '';
+      for (let i = 0; i < text.length; i++) {
+        result += String.fromCharCode(text.charCodeAt(i) ^ CRYPTO_KEY.charCodeAt(i % CRYPTO_KEY.length));
+      }
+      return btoa(result);
+    }
+    function decrypt(encrypted) {
+      try {
+        let text = atob(encrypted);
+        let result = '';
+        for (let i = 0; i < text.length; i++) {
+          result += String.fromCharCode(text.charCodeAt(i) ^ CRYPTO_KEY.charCodeAt(i % CRYPTO_KEY.length));
+        }
+        return result;
+      } catch (e) {
+        return '';
+      }
+    }
+
+    // === Theme Toggle ===
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.classList.toggle('light', savedTheme === 'light');
+    themeToggle.textContent = savedTheme === 'dark' ? 'حالت روشن' : 'حالت تاریک';
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = body.classList.toggle('light');
+      const newTheme = isLight ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = isLight ? 'حالت تاریک' : 'حالت روشن';
+    });
+
+    // === Password Generator ===
+    const passLength = document.getElementById('passLength');
+    const lenValue = document.getElementById('lenValue');
+    passLength.addEventListener('input', () => lenValue.textContent = passLength.value);
+
+    const genPassBtn = document.getElementById('genPassBtn');
+    const passResult = document.getElementById('passResult');
+    const copyPassBtn = document.getElementById('copyPassBtn');
+    const passHistory = document.getElementById('passHistory');
+    const clearPassHistory = document.getElementById('clearPassHistory');
+
+    let passHistoryList = JSON.parse(decrypt(localStorage.getItem('passHistoryEnc') || '')) || [];
+
+    const updatePassHistory = () => {
+      passHistory.innerHTML = '';
+      passHistoryList.slice(-10).forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+        div.textContent = p;
+        passHistory.appendChild(div);
+      });
+      localStorage.setItem('passHistoryEnc', encrypt(JSON.stringify(passHistoryList)));
+    };
+
+    const generatePassword = () => {
+      const length = parseInt(passLength.value);
+      let charset = '';
+      if (document.getElementById('upper').checked) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      if (document.getElementById('lower').checked) charset += 'abcdefghijklmnopqrstuvwxyz';
+      if (document.getElementById('numbers').checked) charset += '0123456789';
+      if (document.getElementById('symbols').checked) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+      if (!charset) {
+        passResult.textContent = '⚠️ حداقل یک نوع کاراکتر را انتخاب کنید!';
+        return;
+      }
+
+      let password = '';
+      for (let i = 0; i < length; i++) {
+        password += charset.charAt(Math.floor(Math.random() * charset.length));
+      }
+
+      passResult.textContent = password;
+      passHistoryList.push(password);
+      updatePassHistory();
+    };
+
+    genPassBtn.addEventListener('click', generatePassword);
+    copyPassBtn.addEventListener('click', async () => {
+      const text = passResult.textContent;
+      if (!text || text.includes('نمایش داده می‌شود') || text.startsWith('⚠️')) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = passResult.textContent;
+        passResult.textContent = '✅ کپی شد!';
+        setTimeout(() => passResult.textContent = original, 1200);
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        passResult.textContent = '✅ کپی شد (روش قدیمی)';
+        setTimeout(() => passResult.textContent = text, 1200);
+      }
+    });
+
+    clearPassHistory.addEventListener('click', () => {
+      if (confirm('آیا مطمئن هستید که می‌خواهید تاریخچه را پاک کنید؟')) {
+        passHistoryList = [];
+        updatePassHistory();
+        passResult.textContent = 'رمز عبور شما اینجا نمایش داده می‌شود';
+      }
+    });
+
+    updatePassHistory();
+
+    // === UUID Generator ===
+    const genUuidBtn = document.getElementById('genUuidBtn');
+    const uuidResult = document.getElementById('uuidResult');
+    const copyUuidBtn = document.getElementById('copyUuidBtn');
+    const uuidHistory = document.getElementById('uuidHistory');
+    const clearUuidHistory = document.getElementById('clearUuidHistory');
+
+    let uuidHistoryList = JSON.parse(decrypt(localStorage.getItem('uuidHistoryEnc') || '')) || [];
+
+    const updateUuidHistory = () => {
+      uuidHistory.innerHTML = '';
+      uuidHistoryList.slice(-10).forEach(u => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+        div.textContent = u;
+        uuidHistory.appendChild(div);
+      });
+      localStorage.setItem('uuidHistoryEnc', encrypt(JSON.stringify(uuidHistoryList)));
+    };
+
+    const generateUUID = () => {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    };
+
+    genUuidBtn.addEventListener('click', () => {
+      const uuid = generateUUID();
+      uuidResult.textContent = uuid;
+      uuidHistoryList.push(uuid);
+      updateUuidHistory();
+    });
+
+    copyUuidBtn.addEventListener('click', async () => {
+      const text = uuidResult.textContent;
+      if (!text || text.includes('نمایش داده می‌شود')) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        const original = uuidResult.textContent;
+        uuidResult.textContent = '✅ کپی شد!';
+        setTimeout(() => uuidResult.textContent = original, 1200);
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        uuidResult.textContent = '✅ کپی شد (روش قدیمی)';
+        setTimeout(() => uuidResult.textContent = text, 1200);
+      }
+    });
+
+    clearUuidHistory.addEventListener('click', () => {
+      if (confirm('آیا مطمئن هستید که می‌خواهید تاریخچه UUID را پاک کنید؟')) {
+        uuidHistoryList = [];
+        updateUuidHistory();
+        uuidResult.textContent = 'UUID شما اینجا نمایش داده می‌شود';
+      }
+    });
+
+    updateUuidHistory();
+
+    // === Crypto Copy Buttons ===
+    document.querySelectorAll('.copy-crypto-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-target');
+        const text = document.getElementById(targetId).textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          const original = btn.textContent;
+          btn.textContent = '✅ کپی شد!';
+          setTimeout(() => btn.textContent = original, 1200);
+        } catch (e) {
+          alert('کپی با موفقیت انجام نشد. لطفاً دستی کپی کنید.');
+        }
+      });
+    });
+
+    document.getElementById('copyAllCrypto').addEventListener('click', async () => {
+      const text = `TRX: ${document.getElementById('trxAddr').textContent}
+USDC: ${document.getElementById('usdcAddr').textContent}
+AVAX: ${document.getElementById('avaxAddr').textContent}
+RVN: ${document.getElementById('rvnAddr').textContent}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        alert('آدرس‌های ارز دیجیتال کپی شدند!');
+      } catch (e) {
+        alert('کپی با موفقیت انجام نشد. لطفاً دستی کپی کنید.');
+      }
+    });
+
+    // === PWA Registration ===
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
