@@ -18,7 +18,7 @@
     }
 
     .light {
-      --bg: #ffffff; /* تغییر از #f8f9fa به #ffffff برای کنتراست بهتر */
+      --bg: #ffffff;
       --card-bg: #f8f9fa;
       --text: #212529;
       --accent: #6f42c1;
@@ -55,7 +55,7 @@
 
     .subtitle {
       font-size: 1.1rem;
-      opacity: 0.85; /* کمی افزایش برای خوانایی بهتر */
+      opacity: 0.85;
       margin-bottom: 20px;
     }
 
@@ -85,7 +85,7 @@
       padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       border: 1px solid var(--border);
-      color: var(--text); /* اطمینان از رنگ متن داخل کارت */
+      color: var(--text);
     }
 
     .tool-card h2 {
@@ -102,7 +102,7 @@
       display: block;
       margin-bottom: 6px;
       font-weight: 500;
-      color: var(--text); /* مهم: برای حالت روشن */
+      color: var(--text);
     }
 
     input[type="range"], input[type="text"], input[type="checkbox"] {
@@ -145,7 +145,7 @@
       min-height: 24px;
       border: 1px dashed var(--border);
       font-family: monospace;
-      color: var(--text); /* این خط اضافه شد */
+      color: var(--text);
     }
 
     .history-list {
@@ -160,7 +160,7 @@
       padding: 6px 0;
       font-size: 0.9rem;
       border-bottom: 1px solid var(--border);
-      color: var(--text); /* این خط اضافه شد */
+      color: var(--text);
     }
 
     .services-grid {
@@ -181,54 +181,6 @@
     .service-card h3 {
       color: var(--accent);
       margin-bottom: 8px;
-    }
-
-    .crypto-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .crypto-item {
-      background: var(--bg);
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      color: var(--text);
-    }
-
-    .crypto-icon {
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-
-    .crypto-name {
-      font-weight: bold;
-      margin-bottom: 6px;
-      color: var(--accent);
-    }
-
-    .crypto-address {
-      font-size: 0.85rem;
-      word-break: break-all;
-      margin-bottom: 8px;
-      direction: ltr;
-      text-align: left;
-      font-family: monospace;
-      color: var(--text); /* این خط اضافه شد */
-    }
-
-    .copy-crypto-btn {
-      background: var(--success);
-      color: #000;
-      padding: 6px 10px;
-      font-size: 0.85rem;
-      width: auto;
-      margin-top: auto;
     }
 
     .contact-card,
@@ -259,11 +211,11 @@
       padding-top: 20px;
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
-      color: var(--text); /* تغییر از --border به --text */
+      color: var(--text);
     }
 
     @media (max-width: 600px) {
-      .tools-container, .services-grid, .crypto-grid {
+      .tools-container, .services-grid {
         grid-template-columns: 1fr;
       }
       h1 { font-size: 1.8rem; }
@@ -273,7 +225,6 @@
 <body class="dark">
   <button class="theme-toggle" id="themeToggle">حالت روشن</button>
 
-  <!-- بقیه محتوا بدون تغییر -->
   <header>
     <h1>کافه ایرانیان</h1>
     <p class="subtitle">پلتفرم جامع ارتباطی و خدمات دیجیتال</p>
@@ -342,38 +293,6 @@
     </div>
   </div>
 
-  <!-- Cryptocurrency Addresses -->
-  <div class="tool-card">
-    <h2>حمایت مالی (ارزهای دیجیتال)</h2>
-    <div class="crypto-grid">
-      <div class="crypto-item">
-        <div class="crypto-icon">🟣</div>
-        <div class="crypto-name">TRX (Tron)</div>
-        <div class="crypto-address" id="trxAddr">TWisA2k4zVrWxYJ8d1sKmQ9pNvR3fGhUjL</div>
-        <button class="copy-crypto-btn" data-target="trxAddr">کپی آدرس</button>
-      </div>
-      <div class="crypto-item">
-        <div class="crypto-icon">🔵</div>
-        <div class="crypto-name">USDC (Ethereum)</div>
-        <div class="crypto-address" id="usdcAddr">0x7a3B4E5F6C8D9A0B1C2D3E4F5A6B7C8D9E0F1A2B</div>
-        <button class="copy-crypto-btn" data-target="usdcAddr">کپی آدرس</button>
-      </div>
-      <div class="crypto-item">
-        <div class="crypto-icon">🔴</div>
-        <div class="crypto-name">AVAX (Avalanche)</div>
-        <div class="crypto-address" id="avaxAddr">avax1z9f8h7g6j5k4l3m2n1o0p9q8r7s6t5u4v3w2x</div>
-        <button class="copy-crypto-btn" data-target="avaxAddr">کپی آدرس</button>
-      </div>
-      <div class="crypto-item">
-        <div class="crypto-icon">🟠</div>
-        <div class="crypto-name">RVN (Ravencoin)</div>
-        <div class="crypto-address" id="rvnAddr">R9f8H7G6J5K4L3M2N1O0P9Q8R7S6T5U4V3W2X1Y</div>
-        <button class="copy-crypto-btn" data-target="rvnAddr">کپی آدرس</button>
-      </div>
-    </div>
-    <button id="copyAllCrypto" style="margin-top: 20px;">کپی همه آدرس‌ها</button>
-  </div>
-
   <!-- Contact -->
   <div class="contact-card" style="padding:20px;border-radius:12px;text-align:center;">
     <h2>تماس با ما</h2>
@@ -407,7 +326,7 @@
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    body.className = savedTheme; // به جای toggle، مستقیم تنظیم کنیم
+    body.className = savedTheme;
     themeToggle.textContent = savedTheme === 'dark' ? 'حالت روشن' : 'حالت تاریک';
 
     themeToggle.addEventListener('click', () => {
@@ -563,35 +482,6 @@
     });
 
     updateUuidHistory();
-
-    // === Crypto Copy Buttons ===
-    document.querySelectorAll('.copy-crypto-btn').forEach(btn => {
-      btn.addEventListener('click', async () => {
-        const targetId = btn.getAttribute('data-target');
-        const text = document.getElementById(targetId).textContent;
-        try {
-          await navigator.clipboard.writeText(text);
-          const original = btn.textContent;
-          btn.textContent = '✅ کپی شد!';
-          setTimeout(() => btn.textContent = original, 1200);
-        } catch (e) {
-          alert('کپی با موفقیت انجام نشد. لطفاً دستی کپی کنید.');
-        }
-      });
-    });
-
-    document.getElementById('copyAllCrypto').addEventListener('click', async () => {
-      const text = `TRX: ${document.getElementById('trxAddr').textContent}
-USDC: ${document.getElementById('usdcAddr').textContent}
-AVAX: ${document.getElementById('avaxAddr').textContent}
-RVN: ${document.getElementById('rvnAddr').textContent}`;
-      try {
-        await navigator.clipboard.writeText(text);
-        alert('آدرس‌های ارز دیجیتال کپی شدند!');
-      } catch (e) {
-        alert('کپی با موفقیت انجام نشد. لطفاً دستی کپی کنید.');
-      }
-    });
   </script>
 </body>
 </html>
